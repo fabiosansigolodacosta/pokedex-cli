@@ -63,8 +63,20 @@ def extrair_campos(dados: dict) -> dict:
         "hp": hp,
     }
 
-def salvar_json(pokemons: list[dict], caminho: str) -> None:
+def salvar_json(pokemons: list[dict], nome_arquivo: str = "pokedex.json") -> bool:
+    dic_json = {
+        "gerado_em": datetime.now().isoformat(timespec="seconds"),
+        "total": len(pokemons),
+        "pokemons": pokemons
+    }
 
-    return None
+    try:
+        with open(nome_arquivo, "w", encoding="utf-8") as arquivo:
+            json.dump(dic_json, arquivo, indent=2, ensure_ascii=False)
+        return True
 
-print(extrair_campos(buscar_pokemon("pikachu")))
+    except OSError as e:
+        print(f"Falha ao gerar o arquivo: {e}")
+        return False
+    
+
