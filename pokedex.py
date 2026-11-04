@@ -1,9 +1,10 @@
 import requests
+import json
+from datetime import datetime
 
 url = "https://pokeapi.co/api/v2/pokemon"
-resp = requests.get(url, timeout=10)
 
-def buscar_pokemon(pokemon: str, timeout: int=10) -> dict | None:
+def buscar_pokemon(pokemon: str, timeout: int = 10) -> dict | None:
     pokemon_tratado = pokemon.strip().lower()
 
     if not pokemon_tratado:
@@ -31,4 +32,39 @@ def buscar_pokemon(pokemon: str, timeout: int=10) -> dict | None:
         print(f"Erro inesperado: {e}")
 
     return None
-    
+
+
+
+def extrair_campos(dados: dict) -> dict:
+    tipos = []
+    hp = None
+    for item in dados["types"]:
+        tipos.append(item["type"]["name"])
+
+    habilidades = []
+    for item in dados["abilities"]:
+        ability = item["ability"]["name"]
+        habilidades.append(ability)
+
+    for item in dados["stats"]:
+        if item["stat"]["name"] == "hp":
+            hp = item["base_stat"]
+            break
+
+   
+
+    return {
+        "id": dados["id"],
+        "nome": dados["name"],
+        "altura_m": dados["height"] / 10,    
+        "peso_kg": dados["weight"] / 10,
+        "tipos": tipos,
+        "habilidades": habilidades,
+        "hp": hp,
+    }
+
+def salvar_json(pokemons: list[dict], caminho: str) -> None:
+
+    return None
+
+print(extrair_campos(buscar_pokemon("pikachu")))
