@@ -1,0 +1,49 @@
+{
+  "gerado_em": "2026-11-05T00:08:49",
+  "total": 3,
+  "pokemons": [
+    {
+      "id": 25,
+      "nome": "pikachu",
+      "altura_m": 0.4,
+      "peso_kg": 6.0,
+      "tipos": [
+        "electric"
+      ],
+      "habilidades": [
+        "static",
+        "lightning-rod"
+      ],
+      "hp": 35
+    },
+    {
+      "id": 4,
+      "nome": "charmander",
+      "altura_m": 0.6,
+      "peso_kg": 8.5,
+      "tipos": [
+        "fire"
+      ],
+      "habilidades": [
+        "blaze",
+        "solar-power"
+      ],
+      "hp": 39
+    },
+    {
+      "id": 1,
+      "nome": "bulbasaur",
+      "altura_m": 0.7,
+      "peso_kg": 6.9,
+      "tipos": [
+        "grass",
+        "poison"
+      ],
+      "habilidades": [
+        "overgrow",
+        "chlorophyll"
+      ],
+      "hp": 45
+    }
+  ]
+}

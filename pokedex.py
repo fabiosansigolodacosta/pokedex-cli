@@ -2,10 +2,8 @@ import requests
 import json
 from datetime import datetime
 
-url = "https://pokeapi.co/api/v2/pokemon"
-
 def buscar_pokemon(pokemon: str, timeout: int = 10) -> dict | None:
-    pokemon_tratado = pokemon.strip().lower()
+    pokemon_tratado = pokemon.strip().lower().replace(" ", "-")
 
     if not pokemon_tratado:
         print("Digite um nome ou ID.")
@@ -79,4 +77,33 @@ def salvar_json(pokemons: list[dict], nome_arquivo: str = "pokedex.json") -> boo
         print(f"Falha ao gerar o arquivo: {e}")
         return False
     
+def main():
+    pokedex = []
+    ids_pokemons = []
+    while True:
+        pokemon = input("Digite o nome ou número do Pokémon (ou 'sair'): ")
+        pokemon = pokemon.lower().strip()
+        if pokemon == "sair":
+            if len(ids_pokemons) == 0:
+                print("Saindo. Nenhum pokemon salvo")
+                break
 
+            if salvar_json(pokedex):
+                print(f"{len(ids_pokemons)} pokémons salvos em pokedex.json")
+                break
+
+            else:
+                print("Os dados não foram salvos, tente sair novamente.")
+                continue
+
+        dados_pokemon = buscar_pokemon(pokemon)
+        if dados_pokemon:
+            campos = extrair_campos(dados_pokemon)
+            if campos["id"] not in ids_pokemons:
+                ids_pokemons.append(campos["id"])
+                pokedex.append(campos)
+                print(f"{campos['nome']}| tipos: {', '.join(campos['tipos'])}| habilidades: {', '.join(campos['habilidades'])}")
+
+
+if __name__ == "__main__":
+    main()
