@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Arquivo gerado pelo programa (a amostra fica em exemplo_saida.json)
+pokedex.json
