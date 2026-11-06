@@ -4,17 +4,19 @@ CLI (Interface de Linha de Comando) em Python que busca pokémons na PokeAPI por
 
 ## Demonstração
 
-```
+```text
 Digite o nome ou número do Pokémon (ou 'sair'): pikachu
-pikachu| tipos: electric| habilidades: static, lightning-rod
-Digite o nome ou número do Pokémon (ou 'sair'): xyz    
-Pokémon 'xyz' não encontrado. Verifique a grafia.
-Digite o nome ou número do Pokémon (ou 'sair'): 
+pikachu | tipos: electric | habilidades: static, lightning-rod
+Digite o nome ou número do Pokémon (ou 'sair'): xyzw
+Pokémon 'xyzw' não encontrado. Verifique a grafia.
+Digite o nome ou número do Pokémon (ou 'sair'):       
 Digite um nome ou ID.
 Digite o nome ou número do Pokémon (ou 'sair'): charizard
-charizard| tipos: fire, flying| habilidades: blaze, solar-power
+charizard | tipos: fire, flying | habilidades: blaze, solar-power
+Digite o nome ou número do Pokémon (ou 'sair'): charmeleon
+charmeleon | tipos: fire | habilidades: blaze, solar-power
 Digite o nome ou número do Pokémon (ou 'sair'): sair
-2 pokémons salvos em pokedex.json
+3 pokémons salvos em pokedex.json
 ```
 
 ## O que ele faz
