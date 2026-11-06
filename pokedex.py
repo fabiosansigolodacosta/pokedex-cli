@@ -102,7 +102,7 @@ def main():
             if campos["id"] not in ids_pokemons:
                 ids_pokemons.append(campos["id"])
                 pokedex.append(campos)
-                print(f"{campos['nome']}| tipos: {', '.join(campos['tipos'])}| habilidades: {', '.join(campos['habilidades'])}")
+                print(f"{campos['nome']} | tipos: {', '.join(campos['tipos'])} | habilidades: {', '.join(campos['habilidades'])}")
 
 
 if __name__ == "__main__":
